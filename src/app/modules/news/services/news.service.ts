@@ -8,7 +8,7 @@ import {Observable, Subject} from "rxjs";
 export class NewsService {
 
   // IMPORTANTE: Las APIs Key deberian guardarse en  variables de entorno no en variables del front que son accesibles desde el navegador
-  private apiKey = '7b04fde7ad394aa8a67c335cc9e68c13';
+  private apiKey = 'dc1e234f015d4e7981460d8fa84bdc1d';
   private baseUrl = 'https://newsapi.org/v2/';
 
   private modalState = new Subject<boolean>();
