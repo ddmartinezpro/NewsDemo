@@ -1,0 +1,80 @@
+.container {
+  margin: 50px;
+  position: relative;
+}
+
+.filtros {
+  width: 25%;
+  position: fixed;
+  top: 63px;
+}
+
+.ant-btn-primary {
+  margin-top: 30px;
+  width: 100%;
+  text-align: center;
+}
+
+.main-content, nz-empty {
+  margin-left: 28%;
+}
+
+app-news-card {
+  max-width: 100%;
+}
+
+nz-pagination {
+  text-align: center;
+  margin-top: 20px;
+}
+
+nz-list-item {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  border-color: transparent !important;
+}
+
+nz-list {
+  border-color: transparent;
+}
+
+.input-cont {
+  margin: 10px 20px;
+}
+
+textarea[nz-input] {
+  width: 100%;
+  min-height: 100px;  /* Ajusta la altura mínima */
+  resize: vertical;  /* Permite al usuario redimensionar el área de texto verticalmente */
+}
+
+.btn-cont {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 15px;
+  margin-top: 35px;
+  button {
+    width: 100px !important;
+    margin: 0;
+  }
+}
+
+@media (max-width: 950px) {
+  .main-content, nz-empty {
+    margin: 0;
+  }
+
+  .filtros {
+    display: none;
+  }
+
+  .container {
+    margin-right: 8%;
+    margin-left: 3%;
+  }
+
+  .ant-card {
+    border-color: transparent;
+  }
+}

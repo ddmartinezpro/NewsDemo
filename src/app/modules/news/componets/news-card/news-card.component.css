@@ -1,0 +1,37 @@
+.card-container {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+
+  h2 {
+    margin-top: 25px;
+    color: #40a9ff;
+  }
+
+  img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+    color: black;
+  }
+
+  .content {
+    color: #484848;
+    font-size: 14px;
+  }
+}
+
+.ant-card {
+  transition: all 0.2s;
+  &:hover {
+    transform: scale(1.01);
+  }
+}
+
+button {
+  position: absolute;
+  top: 35px;
+  right: 35px;
+}
+

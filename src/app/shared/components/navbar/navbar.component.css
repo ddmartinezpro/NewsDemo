@@ -1,0 +1,31 @@
+nav {
+  background-color: white;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  padding: 5px 15px;
+  position: fixed;
+  top: 0;
+  z-index: 200;
+  width: 100%;
+  box-shadow: 0 1px 2px 1px #f1f1f1;
+
+  display: flex;
+}
+
+button {
+  display: none;
+}
+
+img {
+  height: 30px;
+}
+
+@media (max-width: 950px) {
+
+  button {
+    display: block;
+    margin-right: 15px;
+  }
+}
+

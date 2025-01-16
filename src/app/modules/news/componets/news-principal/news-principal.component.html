@@ -1,0 +1,96 @@
+<div class="container">
+  <!-- Primera columna: Filtros -->
+  <div class="filtros">
+    <ng-container *ngTemplateOutlet="filtroTemplate"></ng-container>
+  </div>
+
+  <!-- Segunda columna: Lista de noticias -->
+  @if (newsList.length > 0) {
+    <div class="main-content">
+      <nz-list [nzBordered]="true" [nzDataSource]="newsList" [nzRenderItem]="news">
+        <ng-template #news let-newsItem>
+          <nz-list-item>
+            <app-news-card (edit)="editEvent($event)" [newsItem]="newsItem"></app-news-card>
+          </nz-list-item>
+        </ng-template>
+      </nz-list>
+      <!-- Paginación -->
+      <nz-pagination
+        [(nzPageIndex)]="page"
+        [(nzPageSize)]="newsNumber"
+        [nzTotal]="total"
+        [nzShowSizeChanger]="true"
+        [nzPageSizeOptions]="[5, 10, 20]"
+        (nzPageIndexChange)="onPageChange($event)"
+        (nzPageSizeChange)="onPageSizeChange($event)"
+      ></nz-pagination>
+    </div>
+  } @else {
+    <nz-empty [nzNotFoundContent]="'No hay noticias que mostrar'"></nz-empty>
+  }
+</div>
+
+
+<nz-modal [nzFooter]="null" [nzVisible]="editModalShow" [nzTitle]="'Editar noticia'" (nzOnCancel)="editModalClose()">
+  <ng-container *nzModalContent>
+    <div class="input-cont">
+      <span>Título</span>
+      <textarea style="min-height: 70px;" nz-input [(ngModel)]="newTitulo"></textarea>
+    </div>
+    <div class="input-cont">
+      <span>Descripción</span>
+      <textarea nz-input [(ngModel)]="newDesc"></textarea>
+    </div>
+    <div class="input-cont">
+      <span>Contenido</span>
+      <textarea nz-input [(ngModel)]="newCont"></textarea>
+    </div>
+
+    <div class="btn-cont">
+      <button (click)="edit()" nz-button nzType="primary">Editar</button>
+      <button (click)="editModalClose()" nz-button nzType="default">Cancelar</button>
+    </div>
+  </ng-container>
+</nz-modal>
+
+<nz-modal [nzFooter]="null" [nzVisible]="filtroModalShow" (nzOnCancel)="closeFiltroModal()">
+  <ng-container *nzModalContent>
+    <ng-container *ngTemplateOutlet="filtroTemplate"></ng-container>
+  </ng-container>
+</nz-modal>
+
+<ng-template #filtroTemplate>
+  <nz-card nzTitle="Filtros">
+    <!-- Filtro por query -->
+    <div>
+      <label>Búsqueda:</label>
+      <input nz-input [(ngModel)]="query" placeholder="Buscar noticias..." />
+    </div>
+    <br />
+    <!-- Filtro por fuentes -->
+    <div>
+      <label>Fuentes:</label>
+      <nz-select
+        [(ngModel)]="sourcesSelected"
+        nzMode="multiple"
+        nzPlaceHolder="Selecciona fuentes"
+        [nzOptions]="sourcesList"
+      >
+      </nz-select>
+    </div>
+    <br />
+    <!-- Filtro por orden -->
+    <div>
+      <label>Ordenar por:</label>
+      <nz-select [(ngModel)]="sortBy" [nzOptions]="[
+          { label: 'Fecha de publicación', value: 'publishedAt' },
+          { label: 'Popularidad', value: 'popularity' },
+          { label: 'Relevancia', value: 'relevancy' }
+        ]">
+      </nz-select>
+    </div>
+
+    <button nz-button nzType="primary" (click)="filtrar()">Filtrar</button>
+  </nz-card>
+</ng-template>
+

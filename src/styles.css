@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  overflow-x: hidden;
+  background-color: #112d49;
+}
+
+.ant-card {
+  max-width: 100%;
+}
+
+nz-select {
+  width: 100%;
+}
+
+.ant-pagination-jump-next .ant-pagination-item-container .ant-pagination-item-ellipsis {
+  color: white !important;
+}
+
+.ant-empty-image {
+  height: 350px;
+}
+
+.ant-empty-description {
+  color: white;
+  font-size: 21px;
+  margin-top: -60px;
+}
+
+
