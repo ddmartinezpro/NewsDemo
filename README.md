@@ -1,5 +1,12 @@
 # NewsDemo
 
+## Notas
+Si la petición a NewsAPI falla puede ser porque se acabó el límite de la cuenta para hacer peticiones.
+
+Al hacer click en una card de noticia redirigirá a la noticia original.
+
+Los cambios en las noticias no se guardarán si se recarga la página.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.3.
 
 ## Development server
